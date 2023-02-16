@@ -20,15 +20,15 @@
 - https://www.geeksforgeeks.org/pure-functions-in-javascript/
 - https://gattigaga.com/id/artikel/memahami-pure-function/
 
-### Redux How To
+### Redux Toolkit How To
 
-- https://redux.js.org/api/combinereducers
-- https://read.reduxbook.com/markdown/part1/04-action-creators.html
-- https://redux-resource.js.org/api-reference/action-types
+- https://redux-toolkit.js.org/usage/usage-guide
+- https://redux-toolkit.js.org/usage/usage-guide#creating-slices-of-state
 
-### Struktur Folder Redux
+### Struktur Folder Tambahan Redux Toolkit
 
-- https://redux.js.org/faq/code-structure
+- `/src/app/store.js` = Berisi Store yang merupakan kumpulan dari seluruh State, Reducer dan Action yang akan digunakan lewat Redux
+- `/src/features` = Berisi slice yang merupakan logic dari Reducer dan Action yang akan dibuat secara otomatis oleh Redux Toolkit via `createSlice`
 
 ### Warning
 
