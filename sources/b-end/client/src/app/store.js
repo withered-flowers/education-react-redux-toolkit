@@ -5,8 +5,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counter-slice";
 import todoReducer from "../features/todo/todo-slice";
 
-// Dengan menggunakan configureStore ini, secara otomatis redux toolkit akan menyelipkan Thunk
-// secara otomatis ke dalam store
+// Dengan menggunakan configureStore ini, kita bisa langsung mengkombinasikan beberapa reducer
+// yang ada di dalam sini menjadi satu buat reducer saja
+
+// Store ini adalah "otak" dari redux yang nantikan akan di-suntik ke dalam Component utama
+// via Context
+
+// (Lihat App.jsx untuk lebih jelas tentang cara suntik store ini)
 export const store = configureStore({
   // Apabila reducer ini valuenya berupa Object, maka Redux Toolkit akan secara otomatis
   // menggunakan combineReducer untuk membuat "rootReducer"
