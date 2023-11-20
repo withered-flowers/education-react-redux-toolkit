@@ -1,4 +1,4 @@
-# Education React Redux (Non-Toolkit)
+# Education React Redux Toolkit (Non-Thunk)
 
 ## Table of Contents
 
