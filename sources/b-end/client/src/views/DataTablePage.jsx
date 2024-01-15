@@ -6,15 +6,11 @@ import { useEffect } from "react";
 // Kita tetap menggunakan useSelector dan useDispatch di sini
 import { useDispatch, useSelector } from "react-redux";
 
-// Di sini kita akan meng-import action creator yang secara otomatis dibuatkan
-// oleh createSlice
-import {
-	fetchPending,
-	fetchReject,
-	fetchSuccess,
-} from "../features/todo/todo-slice";
+// Di sini kita akan meng-import function thunk yang sudah kita buat
+import { fetchTodos } from "../features/todo/todo-slice";
 
 const DataTablePage = () => {
+	// State ini sudah tidak digunakan lagi karena sudah masuk ke dalam RTK
 	// const [todos, setTodos] = useState([]);
 	const { isLoading, todos, errorMsg } = useSelector((state) => state.todo);
 	const dispatch = useDispatch();
@@ -22,33 +18,8 @@ const DataTablePage = () => {
 	// Di sini kita tetap membutuhkan useEffect supaya kita dapat memanggil
 	// dispatchnya ketika Component ini dibuat
 	useEffect(() => {
-		const fetchTodos = async () => {
-			try {
-				dispatch(fetchPending());
-
-				const response = await fetch(
-					"https://jsonplaceholder.typicode.com/todos",
-				);
-				const responseJson = await response.json();
-
-				// Pada saat kita memanggil Action Creator
-				// dari reducer yang ada di slice
-
-				// Secara otomatis untuk Actionnya ini hanya menerima Payload saja
-
-				// sehingga parameter yang diberikan, walaupun pada reducernya
-				// ada 2 (state, action)
-
-				// Namun pada saat memanggil via dispatch
-				// cukup memberikan payloadnya saja
-				dispatch(fetchSuccess(responseJson));
-			} catch (err) {
-				// Begitu juga dengan yang ada di sini !
-				dispatch(fetchReject(err));
-			}
-		};
-
-		fetchTodos();
+		// Di sini kita hanya perlu memanggil dispatch fetchTodos (thunk)
+		dispatch(fetchTodos());
 	}, [dispatch]);
 
 	// Di sini kita bisa membuat Loadernya
