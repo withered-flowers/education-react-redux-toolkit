@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 
 const NavBar = () => {
 	const activeClassName = "text-sky-600 underline pointer-events-none";

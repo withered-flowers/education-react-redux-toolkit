@@ -40,7 +40,7 @@ const DataTablePage = () => {
 					<p className="text-2xl font-bold">DataTable Page</p>
 
 					{todos.length > 0 && (
-						<table className="border-1 border border-emerald-400">
+						<table className="border-1 border-emerald-400">
 							<thead>
 								<tr>
 									<th className="border border-emerald-400 py-4">id</th>
